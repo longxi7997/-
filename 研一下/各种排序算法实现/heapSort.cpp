@@ -21,6 +21,8 @@
 #include <vector>
 #include <algorithm>
 #include <math.h>
+
+#include <time.h>
 using namespace std;
 
 void print(int a[] , int n /*, int i*/) {
@@ -53,7 +55,7 @@ void heapDown(int mheap[] ,int curIndex , int last_index )
 			break;
 	}
 
-	print(mheap, last_index + 1);
+	//print(mheap, last_index + 1);
 
 }
 
@@ -88,12 +90,30 @@ void heapSort(int mheap[], int nlength)
 int main()
 {
 
-	int a[10] = { 3,1,5,7,2,4,9,6,10,8 };
+	
+
+	//int a[10] = { 3,1,5,7,2,4,9,6,10,8 };
+	//生成随机数测试
+	int a[20000];
+	for (int i = 0 ; i < 20000 ; i++)
+	{
+		a[i] = rand();
+	}
+
+
+	// 计时器
+	clock_t clockBegin, clockEnd;
+	clockBegin = clock();
+
 	createHeap( a,  sizeof(a)/sizeof(a[0]) );
 
 	heapSort( a,  sizeof(a)/sizeof(a[0]) );
 
-	print(a, 10);
+	clockEnd = clock();
+
+	print(a, 20000);
+
+	cout << "耗时: " << (clockEnd - clockBegin) <<"ms";
 
 	system("pause");
 	return 0;
