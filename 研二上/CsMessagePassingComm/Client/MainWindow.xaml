@@ -1,0 +1,65 @@
+﻿<Window x:Class="Client.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Client"
+        mc:Ignorable="d"
+        Title="Client" Height="540" Width="460"
+        Loaded="Window_Loaded"
+        Closing="Window_Closing">
+
+    <Grid Height="520" Width="440" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="6,0">
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="520"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Margin="5,0,5,5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="70"></RowDefinition>
+                <RowDefinition Height="450"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Border Grid.Row="0" BorderThickness="1" Padding="5">
+                <StackPanel Orientation="Vertical">
+                    <!--<Label Content="Process Pool Control:" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold"/>-->
+                    <!--<StackPanel Orientation="Horizontal">-->
+                    <StackPanel Orientation="Vertical">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Specified Number of Process pool:"></Label>
+                            <Label Width="10"></Label>
+                            <TextBox Name="tbxProcessNum" Width="50" Margin="0,3">5</TextBox>
+                        </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Button Name="btnStart" Width="230" Margin="0,3" Click="btnStart_Click">Start Process Pool with specified Num</Button>
+                            <Label Width="10"></Label>
+                            <Button Name="btnShutdown" Width="160" Margin="0,3" Click="btnShutdown_Click">Shutdown Process pool</Button>
+                        </StackPanel>
+                        <!--<Label Width="10"></Label>-->
+
+                    </StackPanel>
+                </StackPanel>
+            </Border>
+            <Border Grid.Row="1" BorderThickness="1" Padding="5">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"></RowDefinition>
+                        <RowDefinition Height="250"></RowDefinition>
+                        <RowDefinition Height="30"></RowDefinition>
+                        <RowDefinition Height="30"></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <StackPanel Grid.Row="0" Orientation="Vertical">
+                        <Button Name="btnShowFiles" Width="150" Click="btnShowFiles_Click" HorizontalAlignment="Left">Show Files List in Repo</Button>
+                        <Label Content="then Select Files you want to get from repo:" FontWeight="Bold"/>
+                        <!--<Label Width="10"></Label>-->
+                    </StackPanel>
+                    <ListBox Grid.Row="1" Name="fileListBox" SelectionMode="Multiple"></ListBox>
+                    <Button Grid.Row="2" Name="btnSendRequest" HorizontalAlignment="Left" Width="240" Margin="0,5" Click="btnSendRequest_Click">Send selected file to client directory</Button>
+                    <Button Grid.Row="3" Name="btnBuildDll" HorizontalAlignment="Left" Width="240" Margin="0,5" Click="btnBuildDll_Click">build DLL file</Button>
+                </Grid>
+            </Border>
+        </Grid>
+
+
+    </Grid>
+</Window>
